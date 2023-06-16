@@ -30,6 +30,5 @@ function calcularMelhorPreco(){
       }
       else{resultado = 'Etanol'}
 
-      document.getElementById('resultado').innerText = "Resultado: "+resultado
+      document.getElementById('resultado').innerText = "Resultado: " + resultado
     }
-  }
