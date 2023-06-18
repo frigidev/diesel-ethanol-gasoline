@@ -1,34 +1,56 @@
-function calcularMelhorPreco(){ 
-    //Calcular se é melhor usar Etanol, Gasolina ou Diesel
-
-    let precoEtanol = document.getElementById('etanol').value
-    let distanciaEtanol = 10
-    let precoGasolina = document.getElementById('gasolina').value
-    let distanciaGasolina = 13.5
-    let precoDiesel = document.getElementById('diesel').value
-    let distanciaDiesel = 23       
+//Calcular se é melhor usar Etanol, Gasolina ou Diesel v2.0
+function calcularMelhorPreco() {
+//Recebe as entradas do Usuário    
+  const precoEtanolEntrada = document.getElementById('etanol');
+  const precoGasolinaEntrada = document.getElementById('gasolina');
+  const precoDieselEntrada = document.getElementById('diesel');
+  const resultadoElemento = document.getElementById('resultado');
     
-    let resultado = ''
+//Garante que as entradas serão convertidas em números válidos (reais)
+  const precoEtanol = parseFloat(precoEtanolEntrada.value);
+  const precoGasolina = parseFloat(precoGasolinaEntrada.value);
+  const precoDiesel = parseFloat(precoDieselEntrada.value);
+    
+//Validações para as entradas do usuário
+  if (isNaN(precoEtanol) || precoEtanol <= 0) {
+    alert('Digite um valor válido para o preço do etanol');
+    precoEtanolEntrada.value = '';
+    precoEtanolEntrada.focus();
+    return;
+  }
+  
+  if (isNaN(precoGasolina) || precoGasolina <= 0) {
+    alert('Digite um valor válido para o preço da gasolina');
+    precoGasolinaEntrada.value = '';
+    precoGasolinaEntrada.focus();
+    return;
+  }
+  
+  if (isNaN(precoDiesel) || precoDiesel <= 0) {
+    alert('Digite um valor válido para o preço do diesel');
+    precoDieselEntrada.value = '';
+    precoDieselEntrada.focus();
+    return;
+  }
 
-    if(precoEtanol == ''){ 
-      alert ('Preencha o preço do etanol')
-    }
-    else if(precoGasolina == ''){
-      alert ('Preencha o preço da gasolina')
-    }
-    else if(precoDiesel == ''){
-      alert ('Preencha o preço do diesel')
-    }
-    else{
-      let coeficiente = distanciaEtanol / precoEtanol
-      if(distanciaGasolina / precoGasolina > coeficiente){
-        coeficiente = distanciaGasolina / precoGasolina
-        resultado = 'Gasolina'
-      }
-      else if(distanciaDiesel / precoDiesel > coeficiente){
-        resultado = 'Diesel'
-      }
-      else{resultado = 'Etanol'}
-
-      document.getElementById('resultado').innerText = "Resultado: " + resultado
-    }
+//Declaração de variáveis para o processamento
+  const distanciaEtanol = 10;
+  const distanciaGasolina = 13.5;
+  const distanciaDiesel = 23;
+  
+  let resultado = '';
+    
+//Processamento
+  let coeficiente = distanciaEtanol / precoEtanol;
+  
+  if (distanciaGasolina / precoGasolina > coeficiente) {
+    coeficiente = distanciaGasolina / precoGasolina;
+    resultado = 'Gasolina';
+  } else if (distanciaDiesel / precoDiesel > coeficiente) {
+    resultado = 'Diesel';
+  } else {
+    resultado = 'Etanol';
+  }
+  
+  resultadoElemento.innerText = 'Resultado: ' + resultado;
+}//Fim função
