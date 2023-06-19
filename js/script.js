@@ -6,12 +6,12 @@ function calcularMelhorPreco() {
   const precoDieselEntrada = document.getElementById('diesel');
   const resultadoElemento = document.getElementById('resultado');
     
-//Garante que as entradas serão convertidas em números válidos (reais)
+//Garante que as entradas serão convertidas em números reais válidos
   const precoEtanol = parseFloat(precoEtanolEntrada.value);
   const precoGasolina = parseFloat(precoGasolinaEntrada.value);
   const precoDiesel = parseFloat(precoDieselEntrada.value);
     
-//Validações para as entradas do usuário
+//Validações para as entradas do usuário (confirmar que são números positivos)
   if (isNaN(precoEtanol) || precoEtanol <= 0) {
     alert('Digite um valor válido para o preço do etanol');
     precoEtanolEntrada.value = '';
@@ -51,6 +51,6 @@ function calcularMelhorPreco() {
   } else {
     resultado = 'Etanol';
   }
-  
+//Saída de resultados
   resultadoElemento.innerText = 'Resultado: ' + resultado;
 }//Fim função
