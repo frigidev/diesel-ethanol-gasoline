@@ -1,6 +1,6 @@
 //Calcular se é melhor usar Etanol, Gasolina ou Diesel v2.0
 function calcularMelhorPreco() {
-//Recebe as entradas do Usuário    
+//Recebe e armazena as entradas do Usuário    
   const precoEtanolEntrada = document.getElementById('etanol');
   const precoGasolinaEntrada = document.getElementById('gasolina');
   const precoDieselEntrada = document.getElementById('diesel');
