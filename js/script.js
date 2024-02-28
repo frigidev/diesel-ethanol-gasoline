@@ -1,56 +1,56 @@
-//Calcular se é melhor usar Etanol, Gasolina ou Diesel
-function calcularMelhorPreco() {
-//Recebe e armazena as entradas do Usuário    
-  const precoEtanolEntrada = document.getElementById('etanol');
-  const precoGasolinaEntrada = document.getElementById('gasolina');
-  const precoDieselEntrada = document.getElementById('diesel');
-  const resultadoElemento = document.getElementById('resultado');
+//Calculate if it is better to use Ethanol, Gasoline or Diesel
+function calculateBestPrice() {
+//Receive and store user inputs
+  const ethanolPriceInput = document.getElementById('ethanol');
+  const gasolinePriceInput = document.getElementById('gasoline');
+  const dieselPriceInput = document.getElementById('diesel');
+  const elementResult = document.getElementById('result');
     
-//Garante que as entradas serão convertidas em números reais válidos
-  const precoEtanol = parseFloat(precoEtanolEntrada.value);
-  const precoGasolina = parseFloat(precoGasolinaEntrada.value);
-  const precoDiesel = parseFloat(precoDieselEntrada.value);
+//Ensure that the inputs will be conveted in valid real numbers
+  const ethanolPrice = parseFloat(priceEthanolInput.value);
+  const gasolinePrice = parseFloat(priceGasolineInput.value);
+  const dieselPrice = parseFloat(priceDieselInput.value);
     
-//Validações para as entradas do usuário (confirmar que são números positivos)
-  if (isNaN(precoEtanol) || precoEtanol <= 0) {
-    alert('Digite um valor válido para o preço do etanol');
-    precoEtanolEntrada.value = '';
-    precoEtanolEntrada.focus();
+//Validations for the user inputs (confirm that are positive numbers)
+  if (isNaN(ethanolPrice) || ethanolPrice <= 0) {
+    alert('Type a valid value for the price of ethanol');
+    ethanolPriceInput.value = '';
+    ethanolPriceInput.focus();
     return;
   }
   
-  if (isNaN(precoGasolina) || precoGasolina <= 0) {
-    alert('Digite um valor válido para o preço da gasolina');
-    precoGasolinaEntrada.value = '';
-    precoGasolinaEntrada.focus();
+  if (isNaN(gasolinePrice) || gasolinePrice <= 0) {
+    alert('Type a valid value for the price of gasoline');
+    gasolinePriceInput.value = '';
+    gasolinePriceInput.focus();
     return;
   }
   
-  if (isNaN(precoDiesel) || precoDiesel <= 0) {
-    alert('Digite um valor válido para o preço do diesel');
-    precoDieselEntrada.value = '';
-    precoDieselEntrada.focus();
+  if (isNaN(dieselPrice) || dieselPrice <= 0) {
+    alert('Type a valid value for the price of diesel');
+    dieselPriceInput.value = '';
+    dieselPriceInput.focus();
     return;
   }
 
-//Declaração de variáveis para o processamento
-  const distanciaEtanol = 10;
-  const distanciaGasolina = 13.5;
-  const distanciaDiesel = 23;
+//Variables declaration for processing
+  const ethanolDistance = 10;
+  const gasolineDistance = 13.5;
+  const dieselDistance = 23;
   
-  let resultado = '';
+  let result = '';
     
-//Processamento
-  let coeficiente = distanciaEtanol / precoEtanol;
+//Processing
+  let quotient = ethanolDistance / ethanolPrice;
   
-  if (distanciaGasolina / precoGasolina > coeficiente) {
-    coeficiente = distanciaGasolina / precoGasolina;
-    resultado = 'Gasolina';
-  } else if (distanciaDiesel / precoDiesel > coeficiente) {
-    resultado = 'Diesel';
+  if (gasolineDistance / gasolinePrice > quotient) {
+    quotient = gasolineDistance / gasolinePrice;
+    result = 'Gasoline';
+  } else if (dieselDistance / dieselPrice > quotient) {
+    result = 'Diesel';
   } else {
-    resultado = 'Etanol';
+    result = 'Ethanol';
   }
-//Saída de resultados
-  resultadoElemento.innerText = 'Resultado: ' + resultado;
+//Result output
+  elementResult.innerText = 'Result: ' + result;
 }
